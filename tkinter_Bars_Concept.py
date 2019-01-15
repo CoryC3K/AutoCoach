@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from tkinter import Tk, Canvas, Frame, BOTH
-#from tkinter.ttk import *
 import random, time
 
 class Application(Frame):
@@ -9,7 +8,6 @@ class Application(Frame):
     def __init__(self, master=None):
         super().__init__()
         self.initUI()
-        
         
     def initUI(self):
         self.master.title("AutoCoach")
@@ -24,26 +22,23 @@ class Application(Frame):
         w.pack(fill=BOTH, expand=1)
         
         self.after(10, self.update, w, redbar, greenbar, self.width)
-        #print("exit update")
         
     def Random_Generate(self):
         RPre = random.randint(-10,10)
         RAct = random.randint(-10,10)
-        #print("Vals: ", RPre, RAct)
         return (RPre,RAct)
 
-    def update(self, w, redbar, greenbar, width):
+    def update(self, w, redbar, greenbar, width):   # Example just adds random # from -10,10 to the bars, to make them move
         Nums = self.Random_Generate()
-        #print("update")
-        rx0, ry0, rx1, ry1 = w.coords(redbar)   # Redbar is Predicted
-        rx1 = rx1+Nums[0]
-        if rx1 > width:
+        rx0, ry0, rx1, ry1 = w.coords(redbar)   # Redbar is Predicted Grip
+        rx1 = rx1+Nums[0]                       # If statements are to keep example
+        if rx1 > width:                         # within the bounds of the bar
             rx1 = (width*.9)
         if rx1 < 0:
             rx1 = width*.4
         w.coords(redbar, rx0,ry0,rx1,ry1)
         
-        gx0, gy0, gx1, gy1 = w.coords(greenbar) # Greenbar is actual
+        gx0, gy0, gx1, gy1 = w.coords(greenbar) # Greenbar is actual Grip
         gx1 = gx1+Nums[1]
         if gx1 > width:
             gx1 = (width*.9)
@@ -53,20 +48,14 @@ class Application(Frame):
         if gx1 < 0:
             gx1 = width*.3
         w.coords(greenbar, gx0,gy0,gx1,gy1)
-        #print("Vals: ", Nums[0], Nums[1])
+
         Tk.update(self)
         self.after(10,self.update, w, redbar, greenbar, width)
         
-
 def main():
-  
     root = Tk()
     ex = Application(root)
-    
-    #root.geometry()
     root.mainloop()  
 
-
-    
 if __name__ == '__main__':
     main()
