@@ -16,11 +16,11 @@ class Application(Frame):
         c.pack(fill=BOTH, expand=True)
         c.update()
         
-        window_width = c.winfo_width()
-        window_height = c.winfo_height()
+        window_width = c.winfo_width()          # This bit allows for resizing the window
+        window_height = c.winfo_height()        # so that the bars will all fit right 
         
-        backgr = c.create_rectangle( 0, 0, (window_width*1.0), window_height, fill="gray")
-        redbar = c.create_rectangle( 0, 0, (window_width*0.8), window_height, fill="red")
+        backgr = c.create_rectangle( 0, 0, (window_width*1.0), window_height, fill="gray")  # The 1.0, 0.8, 0.5 are just starter values
+        redbar = c.create_rectangle( 0, 0, (window_width*0.8), window_height, fill="red")  
         grnbar = c.create_rectangle( 0, 0, (window_width*0.5), window_height, fill="green")
 
         self.bars(c, backgr, redbar, grnbar)
