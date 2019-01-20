@@ -2,8 +2,6 @@ import random, cmath, math, time
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib.gridspec as gridspec
-from tkinter import Tk, Canvas, Frame, BOTH
-
 
 numOfPoints = 1     # How many current G-force points do we want?
 theta = .4          # controls resolution of outer bound points, smaller theta = more points
