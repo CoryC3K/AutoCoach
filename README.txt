@@ -6,6 +6,7 @@ ______________________________
 
 Currently my plan is to use it, so that you can see where you've got more grip than you think.
 
+Gif of it running: https://imgur.com/fMGqtmV
 It graphs the:
 
 Maximum Overall G-force (Gray bar at the bottom, and blue circle)
