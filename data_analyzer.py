@@ -139,8 +139,8 @@ def btnLoadCourse(*ReDraw):
         Graph_It(Cone_File, fname, 1)                   #   or we're loading multple runs because user selected more than one
         return                                                      #   Mostly this avoids askopenfilename() because we write runs on top of the *old* Cone_File graph
     plot.clear()
-    #Cone_File = askopenfilename()                      # Opens the "Open File" dialog, puts result into Cone_File
-    Cone_File = 'C:/Users/coryc.cginow/Google Drive/Bundy Hill/Map.csv'
+    Cone_File = askopenfilename()                      # Opens the "Open File" dialog, puts result into Cone_File
+
     #print(str(Cone_File))
     try:
         Graph_It(Cone_File, fname, 1)
@@ -155,7 +155,6 @@ def btnLoadRuns():
 
     runfolder = askdirectory()                         # ask the user which directory
     #print(str(runfolder))
-    #runfolder = 'C:/Users/coryc.cginow/Google Drive/Bundy Hill'
     Directory = os.fsencode(runfolder)              # encode it with whatever the os uses
     for file in os.listdir(Directory):                      # for each file:
         Filename = os.fsdecode(file)                    # decode the system path addres
